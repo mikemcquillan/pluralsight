@@ -1,0 +1,258 @@
+﻿USE DATABASE UkPostcodes;
+USE SCHEMA PoliceData;
+
+DROP TABLE IF EXISTS StreetCrime_VerticalMultipleKeys;
+
+CREATE TABLE IF NOT EXISTS StreetCrime_VerticalMultipleKeys
+(
+    CrimeID string,
+    DateReported DateTime,
+    MonthReported int,
+    YearReported int,
+    ShortReportedByPoliceForceName string,
+    ReportedByPoliceForceName string,
+    FallsWithinPoliceForceName string,
+    Longitude float?,
+    Latitude float?,
+    Location string,
+    DistrictCode string,
+    DistrictName string,
+    CrimeType string,
+    Outcome string,
+    CurrentFileDate DateTime,
+    FileYear int,
+    INDEX idx_StreetCrime_RoundRobin
+    CLUSTERED(CurrentFileDate DESC, CrimeType)
+	PARTITIONED BY (ShortReportedByPoliceForceName, YearReported)
+    DISTRIBUTED BY
+    HASH(CrimeType)
+    INTO 5
+);
+
+ALTER TABLE StreetCrime_VerticalMultipleKeys
+ADD PARTITION("avon-and-somerset", 2015),
+    PARTITION("avon-and-somerset", 2016),
+    PARTITION("avon-and-somerset", 2017),
+    PARTITION("avon-and-somerset", 2018),
+
+    PARTITION("bedfordshire", 2015),
+    PARTITION("bedfordshire", 2016),
+    PARTITION("bedfordshire", 2017),
+    PARTITION("bedfordshire", 2018),
+
+    PARTITION("btp", 2015),
+    PARTITION("btp", 2016),
+    PARTITION("btp", 2017),
+    PARTITION("btp", 2018),
+
+    PARTITION("cambridgeshire", 2015),
+    PARTITION("cambridgeshire", 2016),
+    PARTITION("cambridgeshire", 2017),
+    PARTITION("cambridgeshire", 2018),
+
+    PARTITION("cheshire", 2015),
+    PARTITION("cheshire", 2016),
+    PARTITION("cheshire", 2017),
+    PARTITION("cheshire", 2018),
+
+    PARTITION("city-of-london", 2015),
+    PARTITION("city-of-london", 2016),
+    PARTITION("city-of-london", 2017),
+    PARTITION("city-of-london", 2018),
+
+    PARTITION("cleveland", 2015),
+    PARTITION("cleveland", 2016),
+    PARTITION("cleveland", 2017),
+    PARTITION("cleveland", 2018),
+
+    PARTITION("cumbria", 2015),
+    PARTITION("cumbria", 2016),
+    PARTITION("cumbria", 2017),
+    PARTITION("cumbria", 2018),
+
+    PARTITION("derbyshire", 2015),
+    PARTITION("derbyshire", 2016),
+    PARTITION("derbyshire", 2017),
+    PARTITION("derbyshire", 2018),
+
+    PARTITION("devon-and-cornwall", 2015),
+    PARTITION("devon-and-cornwall", 2016),
+    PARTITION("devon-and-cornwall", 2017),
+    PARTITION("devon-and-cornwall", 2018),
+
+    PARTITION("dorset", 2015),
+    PARTITION("dorset", 2016),
+    PARTITION("dorset", 2017),
+    PARTITION("dorset", 2018),
+
+    PARTITION("durham", 2015),
+    PARTITION("durham", 2016),
+    PARTITION("durham", 2017),
+    PARTITION("durham", 2018),
+
+    PARTITION("dyfed-powys", 2015),
+    PARTITION("dyfed-powys", 2016),
+    PARTITION("dyfed-powys", 2017),
+    PARTITION("dyfed-powys", 2018),
+
+    PARTITION("essex", 2015),
+    PARTITION("essex", 2016),
+    PARTITION("essex", 2017),
+    PARTITION("essex", 2018),
+
+    PARTITION("gloucestershire", 2015),
+    PARTITION("gloucestershire", 2016),
+    PARTITION("gloucestershire", 2017),
+    PARTITION("gloucestershire", 2018),
+
+    PARTITION("greater-manchester", 2015),
+    PARTITION("greater-manchester", 2016),
+    PARTITION("greater-manchester", 2017),
+    PARTITION("greater-manchester", 2018),
+
+    PARTITION("gwent", 2015),
+    PARTITION("gwent", 2016),
+    PARTITION("gwent", 2017),
+    PARTITION("gwent", 2018),
+
+    PARTITION("hampshire", 2015),
+    PARTITION("hampshire", 2016),
+    PARTITION("hampshire", 2017),
+    PARTITION("hampshire", 2018),
+
+    PARTITION("hertfordshire", 2015),
+    PARTITION("hertfordshire", 2016),
+    PARTITION("hertfordshire", 2017),
+    PARTITION("hertfordshire", 2018),
+
+    PARTITION("humberside", 2015),
+    PARTITION("humberside", 2016),
+    PARTITION("humberside", 2017),
+    PARTITION("humberside", 2018),
+
+    PARTITION("kent", 2015),
+    PARTITION("kent", 2016),
+    PARTITION("kent", 2017),
+    PARTITION("kent", 2018),
+
+    PARTITION("lancashire", 2015),
+    PARTITION("lancashire", 2016),
+    PARTITION("lancashire", 2017),
+    PARTITION("lancashire", 2018),
+
+    PARTITION("leicestershire", 2015),
+    PARTITION("leicestershire", 2016),
+    PARTITION("leicestershire", 2017),
+    PARTITION("leicestershire", 2018),
+
+    PARTITION("lincolnshire", 2015),
+    PARTITION("lincolnshire", 2016),
+    PARTITION("lincolnshire", 2017),
+    PARTITION("lincolnshire", 2018),
+
+    PARTITION("merseyside", 2015),
+    PARTITION("merseyside", 2016),
+    PARTITION("merseyside", 2017),
+    PARTITION("merseyside", 2018),
+
+    PARTITION("metropolitan", 2015),
+    PARTITION("metropolitan", 2016),
+    PARTITION("metropolitan", 2017),
+    PARTITION("metropolitan", 2018),
+
+    PARTITION("norfolk", 2015),
+    PARTITION("norfolk", 2016),
+    PARTITION("norfolk", 2017),
+    PARTITION("norfolk", 2018),
+
+	PARTITION("north-wales", 2015),
+    PARTITION("north-wales", 2016),
+    PARTITION("north-wales", 2017),
+    PARTITION("north-wales", 2018),
+
+    PARTITION("north-yorkshire", 2015),
+    PARTITION("north-yorkshire", 2016),
+    PARTITION("north-yorkshire", 2017),
+    PARTITION("north-yorkshire", 2018),
+
+    PARTITION("northamptonshire", 2015),
+    PARTITION("northamptonshire", 2016),
+    PARTITION("northamptonshire", 2017),
+    PARTITION("northamptonshire", 2018),
+
+    PARTITION("northern-ireland", 2015),
+    PARTITION("northern-ireland", 2016),
+    PARTITION("northern-ireland", 2017),
+    PARTITION("northern-ireland", 2018),
+
+    PARTITION("northumbria", 2015),
+    PARTITION("northumbria", 2016),
+    PARTITION("northumbria", 2017),
+    PARTITION("northumbria", 2018),
+
+    PARTITION("nottinghamshire", 2015),
+    PARTITION("nottinghamshire", 2016),
+    PARTITION("nottinghamshire", 2017),
+    PARTITION("nottinghamshire", 2018),
+
+    PARTITION("south-wales", 2015),
+    PARTITION("south-wales", 2016),
+    PARTITION("south-wales", 2017),
+    PARTITION("south-wales", 2018),
+
+    PARTITION("south-yorkshire", 2015),
+    PARTITION("south-yorkshire", 2016),
+    PARTITION("south-yorkshire", 2017),
+    PARTITION("south-yorkshire", 2018),
+
+    PARTITION("staffordshire", 2015),
+    PARTITION("staffordshire", 2016),
+    PARTITION("staffordshire", 2017),
+    PARTITION("staffordshire", 2018),
+
+    PARTITION("suffolk", 2015),
+    PARTITION("suffolk", 2016),
+    PARTITION("suffolk", 2017),
+    PARTITION("suffolk", 2018),
+
+    PARTITION("surrey", 2015),
+    PARTITION("surrey", 2016),
+    PARTITION("surrey", 2017),
+    PARTITION("surrey", 2018),
+
+    PARTITION("sussex", 2015),
+    PARTITION("sussex", 2016),
+    PARTITION("sussex", 2017),
+    PARTITION("sussex", 2018),
+
+    PARTITION("thames-valley", 2015),
+    PARTITION("thames-valley", 2016),
+    PARTITION("thames-valley", 2017),
+    PARTITION("thames-valley", 2018),
+
+    PARTITION("warwickshire", 2015),
+    PARTITION("warwickshire", 2016),
+    PARTITION("warwickshire", 2017),
+    PARTITION("warwickshire", 2018),
+    
+    PARTITION("west-mercia", 2015),
+    PARTITION("west-mercia", 2016),
+    PARTITION("west-mercia", 2017),
+    PARTITION("west-mercia", 2018),
+    
+    PARTITION("west-midlands", 2015),
+    PARTITION("west-midlands", 2016),
+    PARTITION("west-midlands", 2017),
+    PARTITION("west-midlands", 2018),
+    
+    PARTITION("west-yorkshire", 2015),
+    PARTITION("west-yorkshire", 2016),
+    PARTITION("west-yorkshire", 2017),
+    PARTITION("west-yorkshire", 2018),
+    
+    PARTITION("wiltshire", 2015),
+    PARTITION("wiltshire", 2016),
+    PARTITION("wiltshire", 2017),
+    PARTITION("wiltshire", 2018),
+
+    PARTITION("unknown", 1);

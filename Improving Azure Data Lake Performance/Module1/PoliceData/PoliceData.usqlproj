@@ -1,0 +1,55 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>1f57f172-9f57-4c47-af64-3040f607462a</ProjectGuid>
+    <OutputType>File</OutputType>
+    <AssemblyName>Algebra.xml</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <Name>PoliceData</Name>
+    <RootNamespace>PoliceData</RootNamespace>
+    <RuntimeVersion>default</RuntimeVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Script Include="001 Burglary Crimes ADLAU Test.usql" />
+    <Script Include="002 Burglary Crimes File Partition Elimination Test.usql" />
+    <Script Include="003 Create Database And Schema.usql" />
+    <Script Include="004 Create Table StreetCrime.usql" />
+    <Script Include="005 Insert StreetCrime Data.usql" />
+    <Script Include="006 Select All Cheshire Street Crimes.usql" />
+    <Script Include="007 Select All Burglary Street Crimes.usql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ScriptCode Include="001 Burglary Crimes ADLAU Test.usql.cs">
+      <DependentUpon>001 Burglary Crimes ADLAU Test.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="002 Burglary Crimes File Partition Elimination Test.usql.cs">
+      <DependentUpon>002 Burglary Crimes File Partition Elimination Test.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="003 Create Database And Schema.usql.cs">
+      <DependentUpon>003 Create Database And Schema.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="004 Create Table StreetCrime.usql.cs">
+      <DependentUpon>004 Create Table StreetCrime.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="005 Insert StreetCrime Data.usql.cs">
+      <DependentUpon>005 Insert StreetCrime Data.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="006 Select All Cheshire Street Crimes.usql.cs">
+      <DependentUpon>006 Select All Cheshire Street Crimes.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="007 Select All Burglary Street Crimes.usql.cs">
+      <DependentUpon>007 Select All Burglary Street Crimes.usql</DependentUpon>
+    </ScriptCode>
+  </ItemGroup>
+  <Import Project="$(AppData)\Microsoft\DataLake\MsBuild\1.0\Usql.targets" />
+</Project>

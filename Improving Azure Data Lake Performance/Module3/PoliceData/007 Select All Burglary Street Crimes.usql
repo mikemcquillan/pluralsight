@@ -1,0 +1,20 @@
+﻿USE DATABASE UkPostcodes;
+USE SCHEMA PoliceData;
+
+DECLARE @OutputPath string = "/output/CheshireStreetCrime.csv";
+
+@results =
+    SELECT DateReported,
+           MonthReported,
+           YearReported,
+           Location,
+           DistrictName,
+           CrimeType,
+           Outcome
+    FROM StreetCrime
+//    WHERE CrimeType == "Burglary";
+    WHERE ShortReportedByPoliceForceName == "cheshire";
+
+OUTPUT @results
+TO @OutputPath
+USING Outputters.Csv();

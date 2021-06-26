@@ -1,0 +1,5 @@
+﻿USE DATABASE UkPostcodes;
+USE SCHEMA PoliceData;
+
+ALTER TABLE StreetCrime_Vertical
+DROP PARTITION("merseyside");

@@ -1,0 +1,62 @@
+﻿USE DATABASE UkPostcodes;
+USE SCHEMA PoliceData;
+
+DECLARE @TargetPath string = "/policedata_years/{CurrentFileDate:yyyy}/streetcrime-{FileYear}.csv";
+
+@baseData =
+    EXTRACT CrimeID string,
+            DateReported DateTime,
+            MonthReported int,
+            YearReported int,
+            ShortReportedByPoliceForceName string,
+            ReportedByPoliceForceName string,
+            FallsWithinPoliceForceName string,
+            Longitude float?,
+            Latitude float?,
+            Location string,
+            DistrictCode string,
+            DistrictName string,
+            CrimeType string,
+            Outcome string,
+            CurrentFileDate DateTime,
+			FileYear int
+    FROM @TargetPath
+    USING Extractors.Csv(skipFirstNRows:1, quoting:true);
+
+INSERT INTO StreetCrime_VerticalMultipleKeys
+(
+    CrimeID,
+    DateReported,
+    MonthReported,
+    YearReported,
+    ShortReportedByPoliceForceName,
+    ReportedByPoliceForceName,
+    FallsWithinPoliceForceName,
+    Longitude,
+    Latitude,
+    Location,
+    DistrictCode,
+    DistrictName,
+    CrimeType,
+    Outcome,
+    CurrentFileDate,
+    FileYear
+)
+	ON INTEGRITY VIOLATION MOVE TO PARTITION("unknown", 1)
+SELECT CrimeID,
+       DateReported,
+       MonthReported,
+       YearReported,
+       ShortReportedByPoliceForceName,
+       ReportedByPoliceForceName,
+       FallsWithinPoliceForceName,
+       Longitude,
+       Latitude,
+       Location,
+       DistrictCode,
+       DistrictName,
+       CrimeType,
+       Outcome,
+       CurrentFileDate,
+       FileYear
+FROM @baseData;

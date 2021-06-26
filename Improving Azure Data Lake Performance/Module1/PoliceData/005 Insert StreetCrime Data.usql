@@ -1,0 +1,60 @@
+﻿USE DATABASE UkPostcodes;
+USE SCHEMA PoliceData;
+
+DECLARE @TargetPath string = "/policedata_years/{CurrentFileDate:yyyy}/streetcrime-{CurrentFileDate:yyyy}.csv";
+
+TRUNCATE TABLE StreetCrime;
+
+@baseData =
+    EXTRACT CrimeID string,
+            DateReported DateTime,
+            MonthReported int,
+            YearReported int,
+            ShortReportedByPoliceForceName string,
+            ReportedByPoliceForceName string,
+            FallsWithinPoliceForceName string,
+            Longitude float?,
+            Latitude float?,
+            Location string,
+            DistrictCode string,
+			DistrictName string,
+            CrimeType string,
+            Outcome string,
+            CurrentFileDate DateTime
+    FROM @TargetPath
+    USING Extractors.Csv(skipFirstNRows : 1, quoting : true);
+
+INSERT INTO StreetCrime
+(
+    CrimeID,
+    DateReported,
+    MonthReported,
+    YearReported,
+    ShortReportedByPoliceForceName,
+    ReportedByPoliceForceName,
+    FallsWithinPoliceForceName,
+    Longitude,
+    Latitude,
+    Location,
+    DistrictCode,
+    DistrictName,
+    CrimeType,
+    Outcome,
+    CurrentFileDate
+)
+SELECT CrimeID,
+       DateReported,
+       MonthReported,
+       YearReported,
+       ShortReportedByPoliceForceName,
+       ReportedByPoliceForceName,
+       FallsWithinPoliceForceName,
+       Longitude,
+       Latitude,
+       Location,
+       DistrictCode,
+       DistrictName,
+       CrimeType,
+       Outcome,
+       CurrentFileDate
+FROM @baseData;

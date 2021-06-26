@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <StartFile>001 Burglary Crimes ADLAU Test.usql</StartFile>
+    <OutputStreamPath>C:\Users\Mike McQuillan\AppData\Local\USQLDataRoot</OutputStreamPath>
+    <ActiveFile>002 Burglary Crimes File Partition Elimination Test.usql</ActiveFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ScriptUserData Include="001 Burglary Crimes ADLAU Test.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>10</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="002 Burglary Crimes File Partition Elimination Test.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="003 Create Database And Schema.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="004 Create Table StreetCrime.usql">
+      <Parallelism>5</Parallelism>
+      <UseLocalComputeAccount>true</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+    </ScriptUserData>
+    <ScriptUserData Include="005 Insert StreetCrime Data.usql">
+      <Parallelism>5</Parallelism>
+      <UseLocalComputeAccount>true</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+    </ScriptUserData>
+    <ScriptUserData Include="006 Select All Cheshire Street Crimes.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="010 Crime Types By Police Force From File.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="011 Create Street Crime Hash Keys Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="012 Insert Street Crime Hash Keys Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="013 Crime Types By Police Force From Hash Keys Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="014 Create Street Crime Direct Hash Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="015 Insert Street Crime Direct Hash Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="016 Crime Types By Police Force From Direct Hash Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="017 Create Street Crime Range Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="018 Insert Street Crime Range Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="019 Crime Types By Police Force From Range Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="020 Create Street Crime Round Robin Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="021 Insert Street Crime Round Robin Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <LocalComputeAccount>LocalCA:localcomputeaccount</LocalComputeAccount>
+      <LocalDatabase>master</LocalDatabase>
+      <LocalSchema>dbo</LocalSchema>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+    <ScriptUserData Include="022 Crime Types By Police Force From Round Robin Table.usql">
+      <UseLocalComputeAccount>false</UseLocalComputeAccount>
+      <ClusterComputeAccount>DataLakeCA:govbi (mike.mcquillan@mcqtech.com)</ClusterComputeAccount>
+      <ClusterDatabase>master</ClusterDatabase>
+      <ClusterSchema>dbo</ClusterSchema>
+      <Parallelism>5</Parallelism>
+    </ScriptUserData>
+  </ItemGroup>
+</Project>

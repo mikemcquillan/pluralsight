@@ -1,0 +1,45 @@
+﻿DECLARE @TargetPath string = "/policedata_years/{CurrentFileDate:yyyy}/streetcrime-{FileYear}.csv";
+DECLARE @OutputPath string = "/output/policedata/burglary_records.csv";
+
+@baseData =
+    EXTRACT CrimeID string,
+            DateReported DateTime,
+            MonthReported int,
+            YearReported int,
+            ShortReportedByPoliceForceName string,
+            ReportedByPoliceForceName string,
+            FallsWithinPoliceForceName string,
+            Longitude float?,
+            Latitude float?,
+            Location string,
+            DistrictCode string,
+            DistrictName string,
+            CrimeType string,
+            Outcome string,
+            CurrentFileDate DateTime,
+			FileYear int
+    FROM @TargetPath
+    USING Extractors.Csv(skipFirstNRows:1, quoting:true);
+
+@outputData =
+    SELECT CrimeID,
+           DateReported,
+           MonthReported,
+           YearReported,
+           ShortReportedByPoliceForceName,
+           ReportedByPoliceForceName,
+           FallsWithinPoliceForceName,
+           Longitude,
+           Latitude,
+           Location,
+           DistrictCode,
+           DistrictName,
+           CrimeType,
+           Outcome
+    FROM @baseData
+    WHERE FileYear == 2015
+          AND CrimeType == "Burglary";
+
+OUTPUT @outputData
+    TO @OutputPath
+    USING Outputters.Csv(outputHeader : true, quoting: true);

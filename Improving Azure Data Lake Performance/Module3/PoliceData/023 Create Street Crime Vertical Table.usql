@@ -1,0 +1,83 @@
+﻿USE DATABASE UkPostcodes;
+USE SCHEMA PoliceData;
+
+DROP TABLE IF EXISTS StreetCrime_Vertical;
+
+CREATE TABLE IF NOT EXISTS StreetCrime_Vertical
+(
+    CrimeID string,
+    DateReported DateTime,
+    MonthReported int,
+    YearReported int,
+    ShortReportedByPoliceForceName string,
+    ReportedByPoliceForceName string,
+    FallsWithinPoliceForceName string,
+    Longitude float?,
+    Latitude float?,
+    Location string,
+    DistrictCode string,
+    DistrictName string,
+    CrimeType string,
+    Outcome string,
+    CurrentFileDate DateTime,
+    FileYear int,
+    INDEX idx_StreetCrime_RoundRobin
+    CLUSTERED(CurrentFileDate DESC, CrimeType)
+	PARTITIONED BY (ShortReportedByPoliceForceName)
+    DISTRIBUTED BY
+    HASH(CrimeType)
+    INTO 5
+);
+
+IF (!PARTITION.EXISTS(StreetCrime_Vertical, "avon-and-somerset")) 
+THEN
+	ALTER TABLE StreetCrime_Vertical
+		ADD PARTITION("avon-and-somerset");
+END;
+
+ALTER TABLE StreetCrime_Vertical
+ADD PARTITION("bedfordshire"),
+    PARTITION("btp"),
+    PARTITION("cambridgeshire"),
+    PARTITION("cheshire"),
+    PARTITION("city-of-london"),
+    PARTITION("cleveland"),
+    PARTITION("cumbria"),
+    PARTITION("derbyshire"),
+    PARTITION("devon-and-cornwall"),
+    PARTITION("dorset"),
+    PARTITION("durham"),
+    PARTITION("dyfed-powys"),
+    PARTITION("essex"),
+    PARTITION("gloucestershire"),
+    PARTITION("greater-manchester"),
+    PARTITION("gwent"),
+    PARTITION("hampshire"),
+    PARTITION("hertfordshire"),
+    PARTITION("humberside"),
+    PARTITION("kent"),
+    PARTITION("lancashire"),
+    PARTITION("leicestershire"),
+    PARTITION("lincolnshire"),
+    PARTITION("merseyside"),
+    PARTITION("metropolitan"),
+    PARTITION("norfolk"),
+    PARTITION("north-wales"),
+    PARTITION("north-yorkshire"),
+    PARTITION("northamptonshire"),
+    PARTITION("northern-ireland"),
+    PARTITION("northumbria"),
+    PARTITION("nottinghamshire"),
+    PARTITION("south-wales"),
+    PARTITION("south-yorkshire"),
+    PARTITION("staffordshire"),
+    PARTITION("suffolk"),
+    PARTITION("surrey"),
+    PARTITION("sussex"),
+    PARTITION("thames-valley"),
+    PARTITION("warwickshire"),
+    PARTITION("west-mercia"),
+    PARTITION("west-midlands"),
+    PARTITION("west-yorkshire"),
+    PARTITION("wiltshire"),
+    PARTITION("unknown");

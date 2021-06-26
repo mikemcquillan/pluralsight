@@ -1,0 +1,20 @@
+﻿USE DATABASE UkPostcodes;
+USE SCHEMA PoliceData;
+
+DECLARE @OutputPath string = "/output/metropolitan_crime_types.csv";
+
+@counts =
+    SELECT DISTINCT ShortReportedByPoliceForceName AS PoliceForce,
+                    CrimeType,
+                    COUNT( * ) AS Total
+    FROM StreetCrime_Range
+    WHERE ShortReportedByPoliceForceName == "metropolitan"
+          AND CurrentFileDate BETWEEN DateTime.Parse("2017-01-01") AND DateTime.Parse("2017-12-31")
+          AND CrimeType == "Vehicle crime"
+    GROUP BY ShortReportedByPoliceForceName,
+             CrimeType;
+
+OUTPUT @counts
+TO @OutputPath
+ORDER BY Total DESC
+USING Outputters.Csv(outputHeader : true, quoting : true);

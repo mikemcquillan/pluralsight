@@ -1,0 +1,30 @@
+﻿USE DATABASE UkPostcodes;
+USE SCHEMA PoliceData;
+
+DROP TABLE IF EXISTS StreetCrime_Hash;
+
+CREATE TABLE IF NOT EXISTS StreetCrime_Hash
+(
+    CrimeID string,
+    DateReported DateTime,
+    MonthReported int,
+    YearReported int,
+    ShortReportedByPoliceForceName string,
+    ReportedByPoliceForceName string,
+    FallsWithinPoliceForceName string,
+    Longitude float?,
+    Latitude float?,
+    Location string,
+    DistrictCode string,
+    DistrictName string,
+    CrimeType string,
+    Outcome string,
+    CurrentFileDate DateTime,
+    FileYear int,
+    INDEX idx_StreetCrime_Hash
+    CLUSTERED(ShortReportedByPoliceForceName)
+    DISTRIBUTED BY
+    HASH(ShortReportedByPoliceForceName, CurrentFileDate, CrimeType)
+    INTO 5
+);
+

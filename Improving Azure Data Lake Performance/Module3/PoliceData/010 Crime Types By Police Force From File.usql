@@ -1,0 +1,35 @@
+﻿DECLARE @TargetPath string = "/policedata_years/{CurrentFileDate:yyyy}/streetcrime-{FileYear}.csv";
+DECLARE @OutputPath string = "/output/policedata/merseyside_crimes.csv";
+
+@baseData =
+    EXTRACT CrimeID string,
+            DateReported DateTime,
+            MonthReported int,
+            YearReported int,
+            ShortReportedByPoliceForceName string,
+            ReportedByPoliceForceName string,
+            FallsWithinPoliceForceName string,
+            Longitude float?,
+            Latitude float?,
+            Location string,
+            DistrictCode string,
+            DistrictName string,
+            CrimeType string,
+            Outcome string,
+            CurrentFileDate DateTime,
+			FileYear int
+    FROM @TargetPath
+    USING Extractors.Csv(skipFirstNRows:1, quoting:true);
+
+@counts =
+    SELECT DISTINCT ShortReportedByPoliceForceName AS PoliceForce,
+                    CrimeType,
+                    COUNT( * ) AS Total
+    FROM @baseData
+    WHERE ShortReportedByPoliceForceName == "merseyside"
+    GROUP BY ShortReportedByPoliceForceName,
+             CrimeType;
+
+OUTPUT @counts TO @OutputPath
+ORDER BY Total DESC
+USING Outputters.Csv(outputHeader:true, quoting:true);

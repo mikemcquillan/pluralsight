@@ -10,4 +10,5 @@
 :r $(path)\015_Insert_StockItem_Table.sql
 :r $(path)\020_Insert_StockItemPrice_Table.sql
 :r $(path)\025_Insert_Customer_Table.sql
-:r $(path)\030_Insert_Orders.sql
+:r $(path)\030_Insert_Orders_Table.sql
+:r $(path)\035_trg_StockItemPrice_UpdateDates_Trigger.sql

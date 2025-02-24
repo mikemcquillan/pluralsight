@@ -27,6 +27,7 @@ int compareValues(const void *value1, const void *value2);
 #define MENU_OPTION_4        4
 
 #define NUM_MOST_GUESSES     10
+#define CLOSE_GUESS_RANGE    5
 
 // Main method - program execution starts here
 int main()
@@ -234,7 +235,7 @@ void playGame(int minimumValue, int maximumValue, int maximumNumberOfGuesses)
 {
     int cheatModeOn = 1;        // Set to 0 to hide the answer
     int playerNumberOfGuesses = 0;
-    int currentPlayerAnswer = 0, closeGuessRange = 5, gameWon = 0;
+    int currentPlayerAnswer = 0, gameWon = 0;
     int correctAnswer = generateRandomNumber(minimumValue, maximumValue);
 
     // Loop for the required number of player guesses
@@ -260,8 +261,8 @@ void playGame(int minimumValue, int maximumValue, int maximumNumberOfGuesses)
             gameWon = 1;
             break;
         }
-        else if(currentPlayerAnswer >= (correctAnswer - closeGuessRange) &&
-                currentPlayerAnswer <= (correctAnswer + closeGuessRange))
+        else if(currentPlayerAnswer >= (correctAnswer - CLOSE_GUESS_RANGE) &&
+                currentPlayerAnswer <= (correctAnswer + CLOSE_GUESS_RANGE))
                 {
                     // Answer is in the warm range
                     printf(ANSI_COLOR_YELLOW "Sorry, wrong guess. But you're pretty warm!\n\n" ANSI_COLOR_RESET);

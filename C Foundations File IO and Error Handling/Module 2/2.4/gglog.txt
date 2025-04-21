@@ -1,0 +1,27 @@
+03/24/25	ERROR	Could not open file files\settings.ini
+03/24/25	ERROR	Could not open file files\settings.ini
+03/24/25	ERROR	Could not open file files\settings.ini
+03/24/25	ERROR	Could not open file files\settings.ini
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/25/25	INFO	Successfully read settings file.
+03/25/25	INFO	Successfully read settings file.
+03/25/25	INFO	Successfully read settings file.
+03/25/25	INFO	Successfully read settings file.
+03/25/25	INFO	Successfully read settings file.
+03/25/25	INFO	Successfully read settings file.
+03/25/25	INFO	Successfully read settings file.
+03/25/25	INFO	Successfully read settings file.
+03/25/25	ERROR	Incorrect number of elements read from high score file.
+03/25/25	INFO	Successfully read settings file.
+03/25/25	ERROR	Incorrect number of elements read from high score file.
+03/25/25	INFO	Successfully read settings file.
+03/25/25	ERROR	Incorrect number of elements read from high score file.

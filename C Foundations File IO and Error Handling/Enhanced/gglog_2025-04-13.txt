@@ -1,0 +1,41 @@
+04/13/25 12:17:18	INFO	Successfully read settings file.
+04/13/25 12:17:19	INFO	Updated high scores file. Number of high scores written: 10. Number valid scores: 1.
+04/13/25 12:19:28	INFO	Successfully read settings file.
+04/13/25 12:19:28	ERROR	High score corrupted - removed score from list.
+04/13/25 12:19:28	ERROR	High score corrupted - removed score from list.
+04/13/25 12:19:28	ERROR	High score corrupted - removed score from list.
+04/13/25 12:19:28	ERROR	High score corrupted - removed score from list.
+04/13/25 12:19:28	ERROR	High score corrupted - removed score from list.
+04/13/25 12:19:28	ERROR	High score corrupted - removed score from list.
+04/13/25 12:19:28	ERROR	High score corrupted - removed score from list.
+04/13/25 12:19:28	ERROR	High score corrupted - removed score from list.
+04/13/25 12:19:28	ERROR	High score corrupted - removed score from list.
+04/13/25 12:19:28	ERROR	High score corrupted - removed score from list.
+04/13/25 12:19:28	ERROR	Corrupted high scores found. High score file deleted.
+04/13/25 12:19:40	INFO	Updated high scores file. Number of high scores written: 10. Number valid scores: 0.
+04/13/25 12:21:25	INFO	Successfully read settings file.
+04/13/25 12:21:25	ERROR	High score corrupted - removed score from list.
+04/13/25 12:21:25	ERROR	High score corrupted - removed score from list.
+04/13/25 12:21:25	ERROR	High score corrupted - removed score from list.
+04/13/25 12:21:25	ERROR	High score corrupted - removed score from list.
+04/13/25 12:21:25	ERROR	High score corrupted - removed score from list.
+04/13/25 12:21:25	ERROR	High score corrupted - removed score from list.
+04/13/25 12:21:25	ERROR	High score corrupted - removed score from list.
+04/13/25 12:21:25	ERROR	High score corrupted - removed score from list.
+04/13/25 12:21:25	ERROR	High score corrupted - removed score from list.
+04/13/25 12:21:25	ERROR	High score corrupted - removed score from list.
+04/13/25 12:21:25	ERROR	Corrupted high scores found. High score file deleted.
+04/13/25 12:21:51	INFO	Updated high scores file. Number of high scores written: 10. Number valid scores: 0.
+04/13/25 12:23:49	INFO	Successfully read settings file.
+04/13/25 12:23:49	ERROR	High score corrupted - removed score from list.
+04/13/25 12:23:49	ERROR	High score corrupted - removed score from list.
+04/13/25 12:23:49	ERROR	High score corrupted - removed score from list.
+04/13/25 12:23:49	ERROR	High score corrupted - removed score from list.
+04/13/25 12:23:49	ERROR	High score corrupted - removed score from list.
+04/13/25 12:23:49	ERROR	High score corrupted - removed score from list.
+04/13/25 12:23:49	ERROR	High score corrupted - removed score from list.
+04/13/25 12:23:49	ERROR	High score corrupted - removed score from list.
+04/13/25 12:23:49	ERROR	High score corrupted - removed score from list.
+04/13/25 12:23:49	ERROR	High score corrupted - removed score from list.
+04/13/25 12:23:49	ERROR	Corrupted high scores found. High score file deleted.
+04/13/25 12:24:26	INFO	Updated high scores file. Number of high scores written: 10. Number valid scores: 0.

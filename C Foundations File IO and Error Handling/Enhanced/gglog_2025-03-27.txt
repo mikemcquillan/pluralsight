@@ -1,0 +1,38 @@
+03/27/25 16:03:34	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:03:35	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:10:56	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:10:58	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:14:23	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:14:23	ERROR	High score corrupted - removed score from list.
+03/27/25 16:14:23	ERROR	High score corrupted - removed score from list.
+03/27/25 16:14:23	ERROR	High score corrupted - removed score from list.
+03/27/25 16:14:23	ERROR	High score corrupted - removed score from list.
+03/27/25 16:14:23	ERROR	High score corrupted - removed score from list.
+03/27/25 16:14:23	ERROR	High score corrupted - removed score from list.
+03/27/25 16:14:23	ERROR	High score corrupted - removed score from list.
+03/27/25 16:14:23	ERROR	High score corrupted - removed score from list.
+03/27/25 16:14:23	ERROR	High score corrupted - removed score from list.
+03/27/25 16:14:23	ERROR	High score corrupted - removed score from list.
+03/27/25 16:14:32	ERROR	Corrupted high scores found. High score file deleted.
+03/27/25 16:16:51	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:16:54	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:19:54	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:19:59	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:20:12	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:25:36	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:25:44	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:28:59	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:29:04	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:29:34	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:29:40	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:30:52	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:31:41	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:31:46	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:31:51	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:32:30	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:32:33	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:32:47	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:33:01	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 16:36:11	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:38:06	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 16:38:11	INFO	Updated high scores file. Number of high scores written: 10.

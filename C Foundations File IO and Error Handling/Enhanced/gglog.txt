@@ -1,0 +1,9 @@
+03/27/25	INFO	Successfully read settings file.
+03/27/25	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 03/27/25	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 03/27/25	INFO	Updated high scores file. Number of high scores written: 10.
+Thu Mar 27 15:50:47 2025	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+Thu Mar 27 15:50:48 2025	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 15:53:48	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.
+03/27/25 15:53:49	INFO	Updated high scores file. Number of high scores written: 10.
+03/27/25 15:54:52	ERROR	Unexpected error reading settings.ini. Check the file is formatted correctly.

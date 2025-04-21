@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include "highscores.h"
+#include "files.h"
 
 // Function prototypes/declarations
 void displayMainMenu();
 int obtainNumericUserInput();
-int* getMostGuessesList(int numberOfGuesses);
-void displayMostGuesses();
 void displaySettingsMenu(int* minimumValue, int* maximumValue, int* numberOfGuesses);
 void playGame(int, int, int);
 int generateRandomNumber(int minimumValue, int maximumValue);
-int compareValues(const void *value1, const void *value2);
+void displayHighScoreTable();
+void cleanUp(int minimumValue, int maximumValue, int numberOfGuesses);
 
 // Constants for colours
 #define ANSI_COLOR_RED     "\x1b[31m"
@@ -25,9 +26,6 @@ int compareValues(const void *value1, const void *value2);
 #define MENU_OPTION_2        2
 #define MENU_OPTION_3        3
 #define MENU_OPTION_4        4
-
-#define NUM_MOST_GUESSES     10
-#define CLOSE_GUESS_RANGE    5
 
 // Main method - program execution starts here
 int main()
@@ -45,6 +43,10 @@ void displayMainMenu()
     int minimumValue = 1, maximumValue = 30;
     int numberOfGuesses = 3;
 
+    // Load high scores into memory
+    currentHighScores = initializeHighScores();
+    loadSettings(&minimumValue, &maximumValue, &numberOfGuesses);
+
     // Menu displays until user exits
     while(exit == 0)
     {
@@ -54,7 +56,7 @@ void displayMainMenu()
         printf(ANSI_COLOR_YELLOW "*****************************\n\n" ANSI_COLOR_RESET);
         printf("1. Play Guessing Game\n");
         printf("2. Settings\n");
-        printf("3. Most Guesses\n");
+        printf("3. High Scores\n");
         printf("4. Exit\n\n");
         printf(ANSI_COLOR_MAGENTA "Please enter your selection: " ANSI_COLOR_RESET);
 
@@ -69,8 +71,8 @@ void displayMainMenu()
             case MENU_OPTION_2:             // Display settings menu
                 displaySettingsMenu(&minimumValue, &maximumValue, &numberOfGuesses);
                 break;
-            case MENU_OPTION_3:             // Display the most guesses list
-                displayMostGuesses();
+            case MENU_OPTION_3:             // Display the high score table
+                displayHighScoreTable();
                 break;
             case MENU_OPTION_4:             // Quit program
                 exit = 1;
@@ -80,6 +82,17 @@ void displayMainMenu()
                 break;
         }        
     }
+
+    cleanUp(minimumValue, maximumValue, numberOfGuesses);
+}
+
+// Cleans up resources when program is closing
+void cleanUp(int minimumValue, int maximumValue, int numberOfGuesses)
+{
+    saveSettings(minimumValue, maximumValue, numberOfGuesses);
+    saveHighScores();
+    free(currentHighScores);        // Free up high score memory
+    currentHighScores = NULL;
 }
 
 // Prompts user for input until a number is entered
@@ -99,49 +112,29 @@ int obtainNumericUserInput()
     return selection;    
 }
 
-// Returns a generated list of guesses
-// numberOfGuesses dictates how many numbers to return
-int* getMostGuessesList(int numberOfGuesses)
-{
-    // Allocate memory for requested number of guesses
-    int* guesses = (int*)malloc(numberOfGuesses * sizeof(int));
-    int minimumNumber = 2, maximumNumber = 35;  // Default range for values
-
-    for(int i = 0; i < numberOfGuesses; i++)
-    {
-        // Allocate a random number in the requested range to the array
-        guesses[i] = generateRandomNumber(minimumNumber, maximumNumber);
-    }
-
-    // Order the array values
-    qsort(guesses, numberOfGuesses, sizeof(guesses[0]), compareValues);
-
-    return guesses;
-}
-
-// Comparison function used for array sorting
-int compareValues(const void *value1, const void *value2)
-{
-    return (*(int*)value1 - *(int*)value2);
-}
-
-// Outputs the generated most guesses list
-void displayMostGuesses()
+void displayHighScoreTable()
 {
     printf(ANSI_COLOR_YELLOW "******************\n" ANSI_COLOR_RESET);
-    printf(ANSI_COLOR_YELLOW "Most Guesses Table\n" ANSI_COLOR_RESET);
+    printf(ANSI_COLOR_YELLOW "High Score Table\n" ANSI_COLOR_RESET);
     printf(ANSI_COLOR_YELLOW "******************\n\n" ANSI_COLOR_RESET);
 
-    // Obtain the required number of guesses
-    int* mostGuesses = getMostGuessesList(NUM_MOST_GUESSES);
-
-    // Output the guesses on-screen
-    for(int i = NUM_MOST_GUESSES - 1; i >= 0; i--)
+    if (currentHighScores == NULL || currentHighScores[0].score == 0)
     {
-        printf("%d. %d\n", i + 1, mostGuesses[i]);
+        printf("There are no high scores. Play a game and try to hit a high score!\n");
     }
-
-    printf(ANSI_COLOR_MAGENTA "\nPress a key to return to the main menu." ANSI_COLOR_RESET);
+    else
+    {
+        // Output the high scores on-screen
+        for(int i = 0; i <= (NUM_HIGH_SCORES - 1); i++)
+        {
+            if(currentHighScores[i].score > 0)
+            {
+                printf("%d.\t%s\t\t\t%d\n", i + 1, currentHighScores[i].name, currentHighScores[i].score);
+            }
+        }
+    }
+    
+    printf(ANSI_COLOR_MAGENTA "\nPress a key to return to the main menu.\n" ANSI_COLOR_RESET);
     getch();
 }
 
@@ -235,8 +228,9 @@ void playGame(int minimumValue, int maximumValue, int maximumNumberOfGuesses)
 {
     int cheatModeOn = 1;        // Set to 0 to hide the answer
     int playerNumberOfGuesses = 0;
-    int currentPlayerAnswer = 0, gameWon = 0;
+    int currentPlayerAnswer = 0, closeGuessRange = 5, gameWon = 0;
     int correctAnswer = generateRandomNumber(minimumValue, maximumValue);
+    int currentPlayerScore = 0;
 
     // Loop for the required number of player guesses
     for(int i = 0; i < maximumNumberOfGuesses; i++)
@@ -255,24 +249,28 @@ void playGame(int minimumValue, int maximumValue, int maximumNumberOfGuesses)
         // Increment the number of guesses
         playerNumberOfGuesses++;
 
+        // Update the player's score
+        currentPlayerScore = updatePlayerScore(correctAnswer, currentPlayerAnswer, 
+                                               playerNumberOfGuesses, currentPlayerScore);
+
         if(currentPlayerAnswer == correctAnswer)
         {
             // If the answer is correct, quit the game
             gameWon = 1;
             break;
         }
-        else if(currentPlayerAnswer >= (correctAnswer - CLOSE_GUESS_RANGE) &&
-                currentPlayerAnswer <= (correctAnswer + CLOSE_GUESS_RANGE))
+        else if(currentPlayerAnswer >= (correctAnswer - closeGuessRange) &&
+                currentPlayerAnswer <= (correctAnswer + closeGuessRange))
                 {
                     // Answer is in the warm range
-                    printf(ANSI_COLOR_YELLOW "Sorry, wrong guess. But you're pretty warm!\n\n" ANSI_COLOR_RESET);
+                    printf(ANSI_COLOR_YELLOW "Sorry, wrong guess. But you're pretty warm! Score: %d.\n\n" ANSI_COLOR_RESET, currentPlayerScore);
                 }
         else
         {
             // Completely wrong answer!
-            printf(ANSI_COLOR_RED "Sorry, that's wrong!\n\n" ANSI_COLOR_RESET);
+            printf(ANSI_COLOR_RED "Sorry, that's wrong! Score: %d.\n\n" ANSI_COLOR_RESET, currentPlayerScore);
         }
-    }
+    }       // End of loop
 
     if(gameWon)
     {
@@ -280,6 +278,7 @@ void playGame(int minimumValue, int maximumValue, int maximumNumberOfGuesses)
         printf(ANSI_COLOR_GREEN "*********************************************************************************\n" ANSI_COLOR_RESET);
         printf(ANSI_COLOR_GREEN "Congratulations, you're an amazing guesser! You won the game after %d attempt(s).\n" ANSI_COLOR_RESET,
                playerNumberOfGuesses);
+        printf(ANSI_COLOR_GREEN "Your score: %d.\n" ANSI_COLOR_RESET, currentPlayerScore);
         printf(ANSI_COLOR_GREEN "*********************************************************************************\n" ANSI_COLOR_RESET);
     }
     else
@@ -287,8 +286,12 @@ void playGame(int minimumValue, int maximumValue, int maximumNumberOfGuesses)
         // Game over message
         printf(ANSI_COLOR_RED "******************************************\n" ANSI_COLOR_RESET);
         printf("Bad luck, you lost. Better luck next time!\n");
+        printf("Your score: %d.\n", currentPlayerScore);
         printf(ANSI_COLOR_RED "******************************************\n" ANSI_COLOR_RESET);
     }
+
+    // Update the high score table
+    updateHighScores(currentPlayerScore);
 }
 
 // Generates a random number within the specified range

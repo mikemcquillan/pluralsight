@@ -1,0 +1,10 @@
+Dolly	500
+Jo	500
+Grace	500
+Will	500
+Josie	500
+Mike	500
+Tom	500
+Jerry	500
+Bertie	3950
+Elvis	320

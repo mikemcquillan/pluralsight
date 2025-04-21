@@ -1,0 +1,14 @@
+03/24/25	ERROR	Could not open file files\settings.ini
+03/24/25	ERROR	Could not open file files\settings.ini
+03/24/25	ERROR	Could not open file files\settings.ini
+03/24/25	ERROR	Could not open file files\settings.ini
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.
+03/24/25	INFO	Successfully read settings file.

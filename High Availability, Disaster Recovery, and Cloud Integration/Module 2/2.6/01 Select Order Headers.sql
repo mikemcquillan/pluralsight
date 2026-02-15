@@ -1,0 +1,1 @@
+SELECT TOP 20 * FROM StockSystem.dbo.OrderHeader ORDER BY OrderHeaderId DESC;

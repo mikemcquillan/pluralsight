@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    
+    <p>Welcome to the hourly report data page.</p>
+    <p>Using database connection: <b>@Model.ConnectionString</b></p>
+    
+    @if (Model.HourlyData != null)
+    {
+        <table class="table">
+        <tr>
+            <th>Report Date</th>
+            <th>Report Hour</th>
+            <th>Number of Orders</th>
+            <th>Total Order Amount</th>
+        </tr>
+        
+        @foreach (var hd in Model.HourlyData)
+        {
+            <tr>
+                <td>@hd.ReportDate</td>
+                <td>@hd.ReportHour</td>
+                <td>@hd.NumberOfOrders</td>
+                <td>@hd.TotalOrderAmount</td>
+            </tr>
+        }
+        </table>
+    }
+    else
+    {
+        <p>An error occurred during loading: <b>@Model.ErrorMessage</b></p>
+    }
+
+</div>

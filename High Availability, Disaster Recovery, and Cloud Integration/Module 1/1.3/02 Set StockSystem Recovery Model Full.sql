@@ -1,0 +1,3 @@
+USE master;
+
+ALTER DATABASE StockSystem SET RECOVERY FULL;

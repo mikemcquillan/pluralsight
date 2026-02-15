@@ -1,0 +1,3 @@
+SELECT @@SERVERNAME;
+
+SELECT COUNT(*) FROM dbo.OrderHeader;

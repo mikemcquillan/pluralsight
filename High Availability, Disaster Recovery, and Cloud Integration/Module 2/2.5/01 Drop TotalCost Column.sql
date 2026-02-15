@@ -1,0 +1,1 @@
+ALTER TABLE StockSystem.dbo.OrderHeader DROP COLUMN TotalCost;

@@ -1,0 +1,184 @@
+{
+    "Call": "GetPurchaseOrder",
+    "DateTime": "2026-10-07 14:04:18",
+    "Action": "Insert",
+    "User": "Dolly",
+    "Data": {
+        "PurchaseOrderId": 18312,
+        "OurRef": "PO18312",
+        "SupplierRef": "Supp18312",
+        "OrderDate": "2026-10-07 14:04:18",
+        "ConfirmedDate": "2026-10-09 14:04:18",
+        "LastUpdatedBy": "Dolly",
+        "PurchaseOrderLines": [
+            {
+                "LineNumber": 1,
+                "ProductCode": "BATT155",
+                "ProductName": "Battery 155",
+                "Quantity": 574,
+                "UnitPrice": 193.83
+            },
+            {
+                "LineNumber": 2,
+                "ProductCode": "BATT330",
+                "ProductName": "Battery 330",
+                "Quantity": 329,
+                "UnitPrice": 382.84
+            },
+            {
+                "LineNumber": 3,
+                "ProductCode": "BATT369",
+                "ProductName": "Battery 369",
+                "Quantity": 143,
+                "UnitPrice": 324.95
+            },
+            {
+                "LineNumber": 4,
+                "ProductCode": "BATT367",
+                "ProductName": "Battery 367",
+                "Quantity": 174,
+                "UnitPrice": 138.63
+            },
+            {
+                "LineNumber": 5,
+                "ProductCode": "BATT201",
+                "ProductName": "Battery 201",
+                "Quantity": 379,
+                "UnitPrice": 514.04
+            },
+            {
+                "LineNumber": 6,
+                "ProductCode": "BATT249",
+                "ProductName": "Battery 249",
+                "Quantity": 459,
+                "UnitPrice": 400.5
+            },
+            {
+                "LineNumber": 7,
+                "ProductCode": "BATT111",
+                "ProductName": "Battery 111",
+                "Quantity": 140,
+                "UnitPrice": 634.86
+            },
+            {
+                "LineNumber": 8,
+                "ProductCode": "BATT373",
+                "ProductName": "Battery 373",
+                "Quantity": 320,
+                "UnitPrice": 191.54
+            },
+            {
+                "LineNumber": 9,
+                "ProductCode": "BATT308",
+                "ProductName": "Battery 308",
+                "Quantity": 284,
+                "UnitPrice": 582.75
+            },
+            {
+                "LineNumber": 10,
+                "ProductCode": "BATT318",
+                "ProductName": "Battery 318",
+                "Quantity": 619,
+                "UnitPrice": 512.26
+            },
+            {
+                "LineNumber": 11,
+                "ProductCode": "BATT389",
+                "ProductName": "Battery 389",
+                "Quantity": 644,
+                "UnitPrice": 249.48
+            },
+            {
+                "LineNumber": 12,
+                "ProductCode": "BATT365",
+                "ProductName": "Battery 365",
+                "Quantity": 36,
+                "UnitPrice": 482.53
+            },
+            {
+                "LineNumber": 13,
+                "ProductCode": "BATT265",
+                "ProductName": "Battery 265",
+                "Quantity": 58,
+                "UnitPrice": 547.77
+            },
+            {
+                "LineNumber": 14,
+                "ProductCode": "BATT299",
+                "ProductName": "Battery 299",
+                "Quantity": 693,
+                "UnitPrice": 459.29
+            },
+            {
+                "LineNumber": 15,
+                "ProductCode": "BATT204",
+                "ProductName": "Battery 204",
+                "Quantity": 9,
+                "UnitPrice": 568.58
+            },
+            {
+                "LineNumber": 16,
+                "ProductCode": "BATT102",
+                "ProductName": "Battery 102",
+                "Quantity": 439,
+                "UnitPrice": 610.9
+            },
+            {
+                "LineNumber": 17,
+                "ProductCode": "BATT282",
+                "ProductName": "Battery 282",
+                "Quantity": 732,
+                "UnitPrice": 336.56
+            },
+            {
+                "LineNumber": 18,
+                "ProductCode": "BATT209",
+                "ProductName": "Battery 209",
+                "Quantity": 352,
+                "UnitPrice": 640.12
+            },
+            {
+                "LineNumber": 19,
+                "ProductCode": "BATT180",
+                "ProductName": "Battery 180",
+                "Quantity": 479,
+                "UnitPrice": 41.59
+            },
+            {
+                "LineNumber": 20,
+                "ProductCode": "BATT143",
+                "ProductName": "Battery 143",
+                "Quantity": 338,
+                "UnitPrice": 222.77
+            },
+            {
+                "LineNumber": 21,
+                "ProductCode": "BATT334",
+                "ProductName": "Battery 334",
+                "Quantity": 243,
+                "UnitPrice": 147.26
+            },
+            {
+                "LineNumber": 22,
+                "ProductCode": "BATT136",
+                "ProductName": "Battery 136",
+                "Quantity": 19,
+                "UnitPrice": 98.66
+            },
+            {
+                "LineNumber": 23,
+                "ProductCode": "BATT302",
+                "ProductName": "Battery 302",
+                "Quantity": 631,
+                "UnitPrice": 636.34
+            },
+            {
+                "LineNumber": 24,
+                "ProductCode": "BATT355",
+                "ProductName": "Battery 355",
+                "Quantity": 128,
+                "UnitPrice": 448.26
+            }
+        ]
+    }
+}

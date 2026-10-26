@@ -1,0 +1,15 @@
+{
+    "Call": "GetCustomer",
+    "DateTime": "2026-10-08 13:36:36",
+    "Action": "Delete",
+    "User": "Jo",
+    "Data": {
+        "Id": 5877,
+        "OurRef": "Cust5877",
+        "Title": "They",
+        "Gender": "Non-Binary",
+        "CompanyName": "TechPro Corporation",
+        "Name": "Jane Smith",
+        "Address": "46 Address Street, Address Town 46, AT46 46AT"
+    }
+}

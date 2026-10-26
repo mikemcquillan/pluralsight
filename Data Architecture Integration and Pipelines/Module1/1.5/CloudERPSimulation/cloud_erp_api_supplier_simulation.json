@@ -1,0 +1,15 @@
+{
+    "Call": "GetSupplier",
+    "DateTime": "2026-10-08 13:35:40",
+    "Action": "Insert",
+    "User": "Dolly",
+    "Data": {
+        "Id": 6174,
+        "OurRef": "Supp6174",
+        "Title": "Mrs",
+        "Gender": "Female",
+        "CompanyName": "Advanced Enterprises",
+        "Name": "Mason Ross",
+        "Address": "23 Address Street, Address Town 23, AT23 23AT"
+    }
+}
